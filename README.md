@@ -22,3 +22,26 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## model
+- user has many tasks
+- task belongs to user
+- task has many tags
+- tag has many tasks
+
+task
+- content
+- end_at
+- priority
+- status
+- tags
+- user_id
+
+user
+- name
+
+tag
+- name
+
+## ERD
+![ERD](db/erd.png)
