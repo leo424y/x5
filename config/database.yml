@@ -9,11 +9,15 @@ development:
 production:
   adapter: postgresql
   database: x5_production
+  username: 'y'
+  password: 'yyyy'
   pool: 5
   timeout: 5000
 
 test:
   adapter: postgresql
   database: x5_test
+  username: 'y'
+  password: 'yyyy'
   pool: 5
   timeout: 5000
