@@ -1,0 +1,5 @@
+test:
+  adapter: postgresql
+  database: x5_test
+  pool: 5
+  timeout: 5000
