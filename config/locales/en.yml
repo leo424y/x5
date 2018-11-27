@@ -31,3 +31,12 @@
 
 en:
   hello: "Hello world"
+  'Tasks': 'Tasks'
+  'Edit': 'Edit'
+  'Content': 'Content'
+  'Destroy': 'Destroy'
+  'New Tasks': 'New Tasks'
+  'Task was successfully created': 'Task was successfully created!'
+  'Task was successfully updated': 'Task was successfully updated!'
+  'Task was successfully destroyed': 'Task was successfully destroyed!'
+  'Are you sure': 'Are you sure?'
