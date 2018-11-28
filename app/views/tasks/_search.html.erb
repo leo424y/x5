@@ -7,9 +7,9 @@
 <%# end %>
 
 <%= form_for :task, html: {method: :get} do |f| %>
-  <%= f.label 'content' %>
+  <%= f.label 'content', style: "display:none;" %>
   <%= f.search_field :content %>
-  <%= f.label 'state' %>
+  <%= f.label 'state', style: "display:none;" %>
   <%= f.select :state, ['','todo', 'doing', 'done'] %>
   <%= f.submit t('search') %>
 <% end %>
