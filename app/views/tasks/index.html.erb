@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= t('Tasks')%></h1>
-<%# render 'search' %>
+<h1><%= link_to t('Tasks'), tasks_path %></h1>
+<%= render 'search' %>
 
 <table>
   <thead>

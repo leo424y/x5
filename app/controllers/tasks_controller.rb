@@ -4,7 +4,12 @@ class TasksController < ApplicationController
   def index
     # @q = Task.ransack(content_cont_any: params[:q][:content], state_cont_any: params[:q][:content])
     # @tasks = @q.result.in_end_time_desc
-    @tasks = Task.in_end_time_desc
+    @tasks = Task.all
+    if params[:task]
+      @tasks = @tasks.where(state: params[:task][:state]) if params[:task][:state].present?
+      @tasks = @tasks.where("content LIKE ?", "%#{params[:task][:content]}%") if params[:task][:content].present?
+    end
+    @tasks = @tasks.in_end_time_desc
   end
 
   def new

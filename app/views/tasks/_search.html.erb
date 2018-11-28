@@ -1,7 +1,15 @@
-<%= search_form_for @q do |f| %>
-  <%= f.label :content %>
+<%# search_form_for @q do |f| %>
+  <%# f.label :content %>
+  <%# f.search_field :content %>
+  <%# f.label :state %>
+  <%# f.select :state, ['','todo', 'doing', 'done'] %>
+  <%# f.submit %>
+<%# end %>
+
+<%= form_for :task, html: {method: :get} do |f| %>
+  <%= f.label 'content' %>
   <%= f.search_field :content %>
-  <%= f.label :state %>
+  <%= f.label 'state' %>
   <%= f.select :state, ['','todo', 'doing', 'done'] %>
-  <%= f.submit %>
+  <%= f.submit t('search') %>
 <% end %>
