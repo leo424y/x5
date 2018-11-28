@@ -2,7 +2,14 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.in_desc.all
+    # @q = Task.ransack(content_cont_any: params[:q][:content], state_cont_any: params[:q][:content])
+    # @tasks = @q.result.in_end_time_desc
+    @tasks = Task.all
+    if params[:task]
+      @tasks = @tasks.where(state: params[:task][:state]) if params[:task][:state].present?
+      @tasks = @tasks.where("content LIKE ?", "%#{params[:task][:content]}%") if params[:task][:content].present?
+    end
+    @tasks = @tasks.in_end_time_desc
   end
 
   def new
@@ -36,7 +43,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:content, :end_time)
+    params.require(:task).permit(:content, :end_time, :state)
   end
 
   def set_task
