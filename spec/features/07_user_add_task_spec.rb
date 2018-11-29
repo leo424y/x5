@@ -26,5 +26,5 @@ RSpec.describe "Tasks", type: :feature do
     click_link "Destroy"
 
     expect(page).to_not have_content(/new task/i)
-  end 
+  end
 end

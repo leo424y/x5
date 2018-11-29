@@ -32,9 +32,11 @@
 en:
   hello: "Hello world"
   'Tasks': 'Tasks'
-  'Edit': 'Edit'
-  'Content': 'Content'
-  'Destroy': 'Destroy'
+  'edit': 'Edit'
+  'content': 'Content'
+  'priority': 'Priority'
+  'end_time': 'End Time'
+  'destroy': 'Destroy'
   'New': 'New'
   'Create': 'Create'
   'Edit': 'Edit'
@@ -44,3 +46,4 @@ en:
   'Task was successfully destroyed': 'Task was successfully destroyed!'
   'Are you sure': 'Are you sure?'
   'search': 'Search'
+  'sorting': 'Priority Sorting'

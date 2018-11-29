@@ -8,8 +8,21 @@ class TasksController < ApplicationController
     if params[:task]
       @tasks = @tasks.where(state: params[:task][:state]) if params[:task][:state].present?
       @tasks = @tasks.where("content LIKE ?", "%#{params[:task][:content]}%") if params[:task][:content].present?
+      if params[:task][:priority].present?
+        @tasks = case params[:task][:priority] 
+        when 'asc'
+          @tasks.in_priority_desc
+        when 'desc'
+          @tasks.in_priority_asc
+        else
+          @tasks
+        end
+      else
+        @tasks = @tasks.in_end_time_desc
+      end
+    else
+      @tasks = @tasks.in_end_time_desc
     end
-    @tasks = @tasks.in_end_time_desc
   end
 
   def new
@@ -43,7 +56,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:content, :end_time, :state)
+    params.require(:task).permit(:content, :end_time, :state, :priority)
   end
 
   def set_task
