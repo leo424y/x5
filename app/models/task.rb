@@ -11,6 +11,8 @@ class Task < ApplicationRecord
 
   scope :in_desc, -> { order(created_at: :desc) }
   scope :in_end_time_desc, -> { order(end_time: :desc) }
+  scope :in_priority_desc, -> { order(priority: :desc) }
+  scope :in_priority_asc, -> { order(priority: :asc) }
 end
 
 

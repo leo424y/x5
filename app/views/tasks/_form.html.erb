@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
-  <%= form.label :content, "Content" %>
-  <%= form.text_field :content %>
-  <%= form.label :content, "End_time" %>
+  <%= form.label :content, t("content") %>
+  <%= form.text_field :content, autofocus: true %>
+  <%= form.label :end_time, t("end_time") %>
   <%= form.datetime_field :end_time %>
+  <%= form.label :priority, t("priority") %>
+  <%= form.select :priority, [1,2,3] %>
   <div class="actions">
     <%= form.submit %>
   </div>
