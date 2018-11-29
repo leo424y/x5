@@ -23,6 +23,7 @@ class TasksController < ApplicationController
     else
       @tasks = @tasks.in_end_time_desc
     end
+    @tasks = @tasks.page(params[:page]).per(5)
   end
 
   def new
