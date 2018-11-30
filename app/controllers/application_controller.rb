@@ -5,18 +5,29 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id] 
   end 
 
+  def is_admin?
+    current_user.role == 'admin'
+  end
+
   helper_method :current_user 
 
   def authenticate_user! 
-   redirect_to '/login' unless current_user 
+   redirect_to login_path unless current_user 
   end
 
   def check_login
     unless current_user
       flash[:warning] = 'You must be logged in to see this page'
-      redirect_to '/login'
+      redirect_to login_path
     end  
   end
+
+  def check_admin
+    unless is_admin?
+      flash[:warning] = 'You must be admin to see this page'
+      redirect_to root_path
+    end  
+  end  
 
   def op_ok(msg = nil)
     msg ||= I18n.t "ok"
