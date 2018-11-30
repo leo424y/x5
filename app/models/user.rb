@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
 
   before_save { self.email = email.downcase }
   validates :name, :email, :password, :password_confirmation, presence: true

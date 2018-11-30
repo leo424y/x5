@@ -3,8 +3,6 @@ class TasksController < ApplicationController
   before_action :check_login
 
   def index
-    # @q = Task.ransack(content_cont_any: params[:q][:content], state_cont_any: params[:q][:content])
-    # @tasks = @q.result.in_end_time_desc
     @tasks = current_user.tasks
     if params[:task]
       @tasks = @tasks.where(state: params[:task][:state]) if params[:task][:state].present?
