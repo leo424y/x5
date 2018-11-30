@@ -10,7 +10,7 @@ RSpec.describe "Tasks", type: :feature do
   end
 
   it "displays edited task after successful edit" do
-    Task.create!(id: 1, content: 'New Task')
+    @user.tasks.create!(id: 1, content: 'New Task')
 
     visit edit_task_path(1)
     fill_in "Content", with: "edited task"
@@ -20,7 +20,7 @@ RSpec.describe "Tasks", type: :feature do
   end 
 
   it "not displays edited task after successful destroy" do
-    Task.create!(id: 1, content: 'new task')
+    @user.tasks.create!(id: 1, content: 'new task')
     
     visit tasks_path
     click_link "Destroy"

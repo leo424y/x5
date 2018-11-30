@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Task with validation", type: :feature do   
+describe "Tasks with validation", type: :feature do   
   it "won't create without content" do
     visit new_task_path
     fill_in "Content", with: ''
@@ -10,7 +10,7 @@ describe "Task with validation", type: :feature do
   end
   
   it "won't update without content" do
-    Task.create!(id: 1, content: 'new task')
+    @user.tasks.create!(id: 1, content: 'new task')
 
     visit edit_task_path(1)
     fill_in "Content", with: ''

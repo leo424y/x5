@@ -31,6 +31,10 @@
 
 en:
   hello: "Hello world"
+  login: 'Login'
+  logout: 'Logout'
+  ok: 'OK!'
+  retry: 'Please retry!'
   'Tasks': 'Tasks'
   'edit': 'Edit'
   'content': 'Content'

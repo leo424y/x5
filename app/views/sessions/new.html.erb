@@ -1,0 +1,17 @@
+<div class="x_panel">
+  <div class="x_content">
+    <h1>Login</h1>
+    <%= form_tag login_path, method: :post do %>
+    <div>
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+    </div>
+    <div>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
+      <%= submit_tag 'Submit' %>
+    <%end%>
+    <h3><%= link_to 'or Signup', signup_path %></h3>
+  </div>
+</div>

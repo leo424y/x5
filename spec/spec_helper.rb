@@ -99,4 +99,9 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
+
+  config.before(:each, type: :feature) do
+    @user = create(:user)
+    ApplicationController.any_instance.stub(:current_user) { User.first }
+  end
 end

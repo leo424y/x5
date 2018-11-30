@@ -1,0 +1,35 @@
+<% if @user.errors.any? %>
+  <div class="x_panel">
+    <div class="x_content">
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </div>
+  </div>	
+<% end %>
+
+<div class="x_panel">
+  <div class="x_content">
+    <h2> Create Account</h2>
+      <%=form_tag '/users', method: :post do %>
+      <div>
+        <%= label_tag :name%>
+        <%= text_field_tag :name %>
+      </div>
+      <div>
+        <%= label_tag :email %>
+        <%= text_field_tag :email%>
+      </div>
+      <div>
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+      </div>
+      <div>
+        <%= label_tag :password_confirmation %>
+        <%= password_field_tag :password_confirmation %>
+      </div>
+    
+      <%= submit_tag 'Sign Up' %>
+    <%end%>
+  </div>
+</div>

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Task Search bar", type: :feature do   
   it "can search content with string" do
-    Task.create!(id: 1, content: 'new task')
+    @user.tasks.create!(id: 1, content: 'new task')
 
     visit tasks_path
     fill_in "Content", with: 'new'
@@ -12,7 +12,7 @@ describe "Task Search bar", type: :feature do
   end
 
   it "wont search content without string" do
-    Task.create!(id: 1, content: 'new task')
+    @user.tasks.create!(id: 1, content: 'new task')
 
     visit tasks_path
     fill_in "Content", with: 'x'
@@ -22,7 +22,7 @@ describe "Task Search bar", type: :feature do
   end
    
   it "can search content with state" do
-    Task.create!(id: 1, content: 'doing task', state: 'doing')
+    @user.tasks.create!(id: 1, content: 'doing task', state: 'doing')
 
     visit tasks_path
     select('doing', from: 'State')
@@ -32,7 +32,7 @@ describe "Task Search bar", type: :feature do
   end
    
   it "won't search content without state" do
-    Task.create!(id: 1, content: 'doing task', state: 'todo')
+    @user.tasks.create!(id: 1, content: 'doing task', state: 'todo')
 
     visit tasks_path
     select('doing', from: 'State')
