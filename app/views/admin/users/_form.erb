@@ -1,0 +1,15 @@
+<%= form_for([:admin, @user]) do |form| %>
+  <%= form.label :name, t("name") %>
+  <%= form.text_field :name, autofocus: true %>
+  <%= form.label :email, t("email") %>
+  <%= form.text_field :email %>
+  <%= form.label :password, t("password") %>
+  <%= form.text_field :password %>
+  <%= form.label :password, t("password_confirmation") %>
+  <%= form.text_field :password_confirmation %>
+  <%= form.label :role, t("role") %>
+  <%= form.select :role, ['normal','admin'] %>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

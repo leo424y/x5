@@ -1,38 +1,24 @@
-<% if notice %>
-<div class="x_panel">
-  <div class="x_content">
-    <p id="notice"><%= notice %></p>
-  </div>
-</div>
-<% end %>
-<div class="x_panel">
-  <div class="x_content">
-    <h1><%= link_to t("Tasks"), tasks_path %></h1>
-    <% if current_user%>
-      <h2><%= "#{current_user.name} / " %><%= link_to t('logout'), logout_path, method: :delete %></h2>
-    <% end %>
-  </div>
-</div>
-
 <div class="x_panel">
   <div class="x_content">
     <%= render 'search' %>
     <hr>
     <%= render 'priority_sorting' %>
     <hr>
-    <%= button_to t('New'), new_task_path, method: :get %>
+    <%= button_to t('new'), new_task_path, method: :get %>
     <hr>
     <table class="table table-striped table-bordered">
       <thead>
+      <% if @tasks.count > 0 %>
         <tr>
           <th><%= t('content') %></th>
           <th><%= t('end_time') %></th>
           <th><%= t('state') %></th>
           <th><%= t('priority') %></th>
           <th><%= t('user') %></th>
-          <th colspan="3"></th>
+          <th colspan="2"></th>
         </tr>
       </thead>
+      <% end %>
 
       <tbody>
         <% @tasks.each do |task| %>
