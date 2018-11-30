@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:edit, :update, :destroy]
+  before_action :check_login
 
   def index
     # @q = Task.ransack(content_cont_any: params[:q][:content], state_cont_any: params[:q][:content])
     # @tasks = @q.result.in_end_time_desc
-    @tasks = Task.all
+    @tasks = current_user.tasks
     if params[:task]
       @tasks = @tasks.where(state: params[:task][:state]) if params[:task][:state].present?
       @tasks = @tasks.where("content LIKE ?", "%#{params[:task][:content]}%") if params[:task][:content].present?
@@ -33,7 +34,7 @@ class TasksController < ApplicationController
   def edit; end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.new(task_params)
     if @task.save
       redirect_to tasks_path, notice: I18n.t('Task was successfully created')
     else
@@ -61,6 +62,6 @@ class TasksController < ApplicationController
   end
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 end
