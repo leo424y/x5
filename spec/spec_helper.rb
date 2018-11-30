@@ -103,6 +103,6 @@ RSpec.configure do |config|
   config.before(:each, type: :feature) do
     @user = create(:user)
     @user2 = create(:user2)
-    ApplicationController.any_instance.stub(:current_user) { User.first }
+    ApplicationController.any_instance.stub(:current_user) { @user }
   end
 end
