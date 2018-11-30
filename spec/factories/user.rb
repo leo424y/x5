@@ -4,6 +4,7 @@ FactoryBot.define do
     password 'y'
     password_confirmation 'y'
     email 'l@l'
+    role 'admin'
   end
 
   factory :user2, class: User do
@@ -11,5 +12,6 @@ FactoryBot.define do
     password 'y'
     password_confirmation 'y'
     email 'ly@ly'
+    role 'normal'
   end
 end

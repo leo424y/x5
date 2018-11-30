@@ -32,7 +32,7 @@ describe "Admin", type: :feature do
     @user.tasks.create!(content: 'Love U')
     visit admin_users_path
 
-    expect(page).to have_content(/Name Email Role Task Counts Leo l@l 1/i)
+    expect(page).to have_content(/Name Email Role Task Counts Leo l@l admin 1/i)
   end
 
   it "can delete users with their tasks" do
@@ -49,5 +49,17 @@ describe "Admin", type: :feature do
 
     visit root_path
     expect(Task.count).to eql 0
-  end   
+  end
+
+  it "can be visit as admin" do
+    visit admin_users_path
+    expect(page).to have_content(/Fly/i)
+  end
+
+  it "cannot be visit if not admin" do
+    ApplicationController.any_instance.stub(:current_user) { @user2 }
+
+    visit admin_users_path
+    expect(page).to have_content(/You must be admin to see this page/i)
+  end
 end
