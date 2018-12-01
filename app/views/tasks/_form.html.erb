@@ -19,6 +19,8 @@
   <%= form.select :state, ['todo','doing','done'] %>
   <%= form.label :priority, t("priority") %>
   <%= form.select :priority, [1,2,3] %>
+  <%= form.label :all_tags, t("all_tags") %>
+  <%= form.text_field :all_tags, placeholder: "Tags separated with comma" %>  
   <div class="actions">
     <%= form.submit %>
   </div>
