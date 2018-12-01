@@ -7,8 +7,8 @@
   <%= form.text_field :password %>
   <%= form.label :password, t("password_confirmation") %>
   <%= form.text_field :password_confirmation %>
-  <%= form.label :role, t("role") %>
-  <%= form.select :role, ['normal','admin'] %>
+  <%= form.label :role, t("role") unless @user.id == current_user.id %>
+  <%= form.select :role, ['normal','admin'] unless @user.id == current_user.id %>
   <div class="actions">
     <%= form.submit %>
   </div>
