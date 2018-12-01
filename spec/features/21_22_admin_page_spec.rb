@@ -51,15 +51,27 @@ describe "Admin", type: :feature do
     expect(Task.count).to eql 0
   end
 
-  it "can be visit as admin" do
+  it "can visit admin page as admin" do
     visit admin_users_path
     expect(page).to have_content(/Fly/i)
   end
 
-  it "cannot be visit if not admin" do
+  it "cannot visit admin page if its role is not admin" do
     ApplicationController.any_instance.stub(:current_user) { @user2 }
 
     visit admin_users_path
     expect(page).to have_content(/You must be admin to see this page/i)
   end
+
+  it "cannot destroy themselves" do
+    visit admin_users_path
+
+    expect(page).not_to have_content(/Leo l@l admin 0 Edit Destroy/i)
+  end
+
+  it "cannot change themselves' role" do
+    visit edit_admin_user_path(@user)
+
+    expect(page).not_to have_content(/Role/i)
+  end 
 end

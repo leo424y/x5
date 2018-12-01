@@ -4,7 +4,10 @@ class TasksController < ApplicationController
 
   def index
     @tasks = current_user.tasks
-    if params[:task]
+
+    if params[:tag]
+      @tasks = @tasks.tagged_with(params[:tag])
+    elsif params[:task]
       @tasks = @tasks.where(state: params[:task][:state]) if params[:task][:state].present?
       @tasks = @tasks.where("content LIKE ?", "%#{params[:task][:content]}%") if params[:task][:content].present?
       if params[:task][:priority].present?
@@ -56,7 +59,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:content, :end_time, :state, :priority)
+    params.require(:task).permit(:content, :end_time, :state, :priority, :all_tags)
   end
 
   def set_task
