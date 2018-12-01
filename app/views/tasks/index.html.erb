@@ -8,6 +8,10 @@
     <hr>
     <%= render 'tag_bar' %>
     <hr>    
+    <% if params[:tag] %>
+    <%= "Task with tag: #{params[:tag]}"  %>
+    <hr>
+    <% end %>
     <table class="table table-striped table-bordered">
       <thead>
       <% if @tasks.count > 0 %>

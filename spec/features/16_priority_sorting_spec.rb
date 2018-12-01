@@ -9,7 +9,7 @@ describe "Task priority sorting", type: :feature do
     select('desc', from: 'Priority')
     click_button "Priority Sorting"
 
-    expect(page).to have_content(/Content End Time State Priority User task 1 todo 1 Leo Edit Destroy task 2 todo 2 Leo Edit Destroy/i)
+    expect(page).to have_content(/task 1 todo 1 Leo Edit Destroy task 2 todo 2 Leo Edit Destroy/i)
   end
 
   it "can be asc from 3 to 1" do
@@ -20,6 +20,6 @@ describe "Task priority sorting", type: :feature do
     select('asc', from: 'Priority')
     click_button "Priority Sorting"
 
-    expect(page).to have_content(/Content End Time State Priority User task 2 todo 2 Leo Edit Destroy task 1 todo 1 Leo Edit Destroy/)
+    expect(page).to have_content(/task 2 todo 2 Leo Edit Destroy task 1 todo 1 Leo Edit Destroy/)
   end
 end
