@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'errors/file_not_found'
+  get 'errors/unprocessable'
+  get 'errors/internal_server_error'
   root to: 'tasks#index'
   resources :tasks
 
@@ -12,4 +15,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
   end
+
+  get '404', to: 'errors#file_not_found', via: :all
+  get '500', to: 'errors#internal_server_error', via: :all
 end
