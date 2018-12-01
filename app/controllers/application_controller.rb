@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   def check_admin
     unless current_user && is_admin?
       flash[:warning] = 'You must be admin to see this page'
-      redirect_to root_path
+      redirect_to errors_file_not_found_path
     end  
   end  
 

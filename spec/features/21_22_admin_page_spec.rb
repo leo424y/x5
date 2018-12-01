@@ -61,6 +61,8 @@ describe "Admin", type: :feature do
 
     visit admin_users_path
     expect(page).to have_content(/You must be admin to see this page/i)
+    expect(page).to have_content(/404/i)
+    expect(page).to have_content(/Oops! This Page Could Not Be Found/i)
   end
 
   it "cannot destroy themselves" do
