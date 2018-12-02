@@ -39,3 +39,13 @@
   </tbody>
 </table>
 <%= paginate @tasks %>
+
+<%= month_calendar(attribute: :end_time, events: @tasks)  do |date, tasks| %>
+  <%= date %>
+
+  <% tasks.each do |task| %>
+    <div>
+      <%= link_to task.content, edit_task_path(task)  %>
+    </div>
+  <% end %>
+<% end %>
