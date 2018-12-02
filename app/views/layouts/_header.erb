@@ -1,8 +1,13 @@
 <div class="x_panel">
   <div class="x_content">
     <h1><%= link_to t("Tasks"), tasks_path %></h1>
-    <% if current_user%>
-      <h2><%= "#{current_user.name} / " %><%= link_to t('logout'), logout_path, method: :delete %></h2>
+    <% if current_user %>
+      <h2>
+      <%= "#{current_user.name} / " %><%= link_to t('logout'), logout_path, method: :delete %></h2>
+        <% if current_user.role == 'admin' %>
+          <%= link_to t('user'), admin_users_path %>
+        <% end %>
+      </h2>
     <% end %>
   </div>
 </div>

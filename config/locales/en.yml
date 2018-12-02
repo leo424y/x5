@@ -42,6 +42,7 @@ en:
   password_confirmation: 'Password Confirmation'
   task_counts: 'Task Counts'
   tags: 'Tags'
+  user: 'User'
   'Tasks': 'Tasks'
   'edit': 'Edit'
   'content': 'Content'
