@@ -8,6 +8,6 @@ module TasksHelper
     current_user.tasks.each do |task| 
       user_tag += task.tags.map(&:name)
     end
-    user_tag.uniq.join(", ")
+    user_tag.uniq.sort.join(", ")
   end
 end
