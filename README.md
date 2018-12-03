@@ -7,41 +7,50 @@ Things you may want to cover:
 
 * Ruby version
 
-* System dependencies
+'2.5.3'
 
-* Configuration
+* Rails version
 
-* Database creation
+'5.2.1'
 
 * Database initialization
 
+```bash
+rails db:create
+rails db:migrate
+```
+
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+rspec
+```
 
 ## model
-- user has many tasks
-- task belongs to user
-- task has many tags
-- tag has many tasks
+
+* user has many tasks
+* task belongs to user
+* task has many tags through tagging
+* tag has many tasks through tagging
 
 task
-- content
-- end_at
-- priority
-- status
-- tags
-- user_id
+
+* content
+* end_at
+* priority
+* status
 
 user
-- name
+
+* name
+* email
+* password
+* role
 
 tag
-- name
+
+* name
 
 ## ERD
+
 ![ERD](db/diagram/x5_erd.png)
