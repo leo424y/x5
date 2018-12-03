@@ -49,3 +49,5 @@
     </div>
   <% end %>
 <% end %>
+
+<%= pie_chart Tag.pluck(:name, :taggings_count), download: true %>
