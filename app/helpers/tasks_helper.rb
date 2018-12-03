@@ -5,7 +5,7 @@ module TasksHelper
 
   def all_user_tags
     user_tag = []
-    current_user.tasks.each do |task| 
+    current_user.tasks.includes(:tags).each do |task| 
       user_tag += task.tags.map(&:name)
     end
     user_tag.uniq.sort.join(", ")

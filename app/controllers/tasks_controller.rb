@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :check_login
 
   def index
-    @tasks = current_user.tasks
+    @tasks = current_user.tasks.includes(:tags)
 
     if params[:tag]
       @tasks = @tasks.tagged_with(params[:tag])

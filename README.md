@@ -61,5 +61,5 @@ brew install graphviz
 
 [The Newest ERD](erd.pdf)
 
-![ERD 12/03/18](db/diagram/x5_erd.png)
+![ERD 12/03/18](db/diagram/erd.png)
 

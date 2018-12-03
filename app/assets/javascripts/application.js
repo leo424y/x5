@@ -13,6 +13,8 @@
 //= require rails-ujs
 //= require gentelella
 //= require gentelella-custom
+//= require Chart.bundle
+//= require chartkick
 //= require activestorage
 //= require turbolinks
 //= require_tree .
