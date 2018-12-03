@@ -1,13 +1,12 @@
-<h1>Login</h1>
+<h1>Login</h1><h3><%= link_to t('signup'), signup_path %></h3>
 <%= form_tag login_path, method: :post do %>
 <div>
-  <%= label_tag :email %>
+  <%= label_tag :email, t("email") %>
   <%= text_field_tag :email %>
 </div>
 <div>
-  <%= label_tag :password %>
+  <%= label_tag :password, t("password") %>
   <%= password_field_tag :password %>
 </div>
-  <%= submit_tag 'Submit' %>
+  <%= submit_tag t('submit') %>
 <%end%>
-<h3><%= link_to 'or Signup', signup_path %></h3>

@@ -30,7 +30,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  submit: 'Submit'
+  signup: 'signup'
   login: 'Login'
   logout: 'Logout'
   ok: 'OK!'
@@ -41,8 +42,19 @@ en:
   password: 'Password'
   password_confirmation: 'Password Confirmation'
   task_counts: 'Task Counts'
+  all_tags: 'All Tags'
+  back: 'Back'
+  todo: 'todo'
+  doing: 'doing'
+  done: 'done'
+  desc: 'desc'
+  asc: 'asc'
+  state: 'State'
   tags: 'Tags'
   user: 'User'
+  tag1: 'Tag1'        
+  tag2: 'Tag2'        
+  tag3: 'Tag3'        
   'Tasks': 'Tasks'
   'edit': 'Edit'
   'content': 'Content'

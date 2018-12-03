@@ -1,5 +1,5 @@
 <%= form_for :task, html: {method: :get} do |f| %>
   <%= f.label 'priority', style: "display:none;" %>
-  <%= f.select :priority, ['','desc','asc'] %>
+  <%= f.select :priority, ['',t('desc'),t('asc')] %>
   <%= f.submit t('sorting') %>
 <% end %>

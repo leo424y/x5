@@ -1,15 +1,7 @@
-<%# search_form_for @q do |f| %>
-  <%# f.label :content %>
-  <%# f.search_field :content %>
-  <%# f.label :state %>
-  <%# f.select :state, ['','todo', 'doing', 'done'] %>
-  <%# f.submit %>
-<%# end %>
-
 <%= form_for :task, html: {method: :get} do |f| %>
   <%= f.label 'content', style: "display:none;" %>
   <%= f.search_field :content, autofocus: true %>
   <%= f.label 'state', style: "display:none;" %>
-  <%= f.select :state, ['','todo', 'doing', 'done'] %>
+  <%= f.select :state, ['',t('todo'), t('doing'), t('done')] %>
   <%= f.submit t('search') %>
 <% end %>

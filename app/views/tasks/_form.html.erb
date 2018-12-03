@@ -11,16 +11,16 @@
     </div>
   <% end %>
 
-  <%= form.label :content, t("content") %>
+  <%= form.label :content, t('content') %>
   <%= form.text_field :content, autofocus: true %>
-  <%= form.label :end_time, t("end_time") %>
+  <%= form.label :end_time, t('end_time') %>
   <%= form.datetime_field :end_time %>
-  <%= form.label :state, t("state") %>
-  <%= form.select :state, ['todo','doing','done'] %>
-  <%= form.label :priority, t("priority") %>
+  <%= form.label :state, t('state') %>
+  <%= form.select :state, [t('todo'),t('doing'),t('done')] %>
+  <%= form.label :priority, t('priority') %>
   <%= form.select :priority, [1,2,3] %>
-  <%= form.label :all_tags, t("all_tags") %>
-  <%= form.text_field :all_tags, placeholder: "tag1, tag2, tag3" %>  
+  <%= form.label :all_tags, t('all_tags') %>
+  <%= form.text_field :all_tags, placeholder: "#{t('tag1')}, #{t('tag2')}, #{t('tag3')}" %>  
   <div class="actions">
     <%= form.submit %>
   </div>
