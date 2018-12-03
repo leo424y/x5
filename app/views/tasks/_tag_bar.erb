@@ -1,3 +1,4 @@
 <%= "#{t('tags')}: " %>
 
 <%= raw tag_links(all_user_tags) %>
+<%= pie_chart Tag.pluck(:name, :taggings_count), download: true %>
