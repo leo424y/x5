@@ -54,3 +54,5 @@ tag
 ## ERD
 
 ![ERD](db/diagram/x5_erd.png)
+
+[Newest ERD](erd.pdf)
