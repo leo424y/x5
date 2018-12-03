@@ -44,4 +44,4 @@ tag
 - name
 
 ## ERD
-![ERD](db/erd.png)
+![ERD](db/diagram/x5_erd.png)
