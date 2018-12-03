@@ -53,6 +53,13 @@ tag
 
 ## ERD
 
-![ERD](db/diagram/x5_erd.png)
+Install graphviz to renew ERD after every `rails db:migrate`
 
-[Newest ERD](erd.pdf)
+```bash
+brew install graphviz
+```
+
+[The Newest ERD](erd.pdf)
+
+![ERD 12/03/18](db/diagram/x5_erd.png)
+
