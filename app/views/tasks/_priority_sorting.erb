@@ -1,5 +1,9 @@
 <%= form_for :task, html: {method: :get} do |f| %>
   <%= f.label 'priority', style: "display:none;" %>
-  <%= f.select :priority, ['',t('desc'),t('asc')] %>
+  <% if params[:task] && params[:task][:priority] %>
+    <%= f.select :priority, ['',t('desc'),t('asc')], selected: params[:task][:priority] %>
+  <% else %>
+    <%= f.select :priority, ['',t('desc'),t('asc')] %> 
+  <% end %>
   <%= f.submit t('sorting') %>
 <% end %>

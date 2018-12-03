@@ -1,7 +1,11 @@
 <%= form_for :task, html: {method: :get} do |f| %>
   <%= f.label 'content', style: "display:none;" %>
-  <%= f.search_field :content, autofocus: true %>
+  <%= f.search_field :content, autofocus: true, value: (params[:task] && params[:task][:content] ? params[:task][:content] : '' ) %>
   <%= f.label 'state', style: "display:none;" %>
-  <%= f.select :state, ['',t('todo'), t('doing'), t('done')] %>
+  <% if params[:task] && params[:task][:state] %>
+    <%= f.select :state, ['',t('todo'), t('doing'), t('done')], selected: params[:task][:state] %>
+  <% else %>
+    <%= f.select :state, ['',t('todo'), t('doing'), t('done')] %>
+  <% end %>
   <%= f.submit t('search') %>
 <% end %>
