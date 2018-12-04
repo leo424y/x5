@@ -8,8 +8,6 @@ class TasksController < ApplicationController
     tasks.each do |task|
       to = task.user.email
       subject = "Hi, #{task.user.name}. Your task's [#{task.content}] deadline is #{task.end_time}!" 
-      p to 
-      p subject
       UserNotifierMailer.send_mail(to, subject).deliver_later!
     end 
   end
