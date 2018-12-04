@@ -44,6 +44,7 @@ gem 'kaminari'
 gem 'bcrypt'
 gem "simple_calendar", "~> 2.0"
 gem "chartkick"
+gem 'sendgrid-ruby'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
