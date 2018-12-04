@@ -2,6 +2,18 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :destroy]
   before_action :check_login
 
+  def deadline_mailer
+    tasks = Task.includes(:user).where.not(state: 'done').where("end_time > ? AND end_time < ?", Time.now+3600*24, Time.now+3600*24*5)
+
+    tasks.each do |task|
+      to = task.user.email
+      subject = "Hi, #{task.user.name}. Your task's [#{task.content}] deadline is #{task.end_time}!" 
+      p to 
+      p subject
+      UserNotifierMailer.send_mail(to, subject).deliver_later!
+    end 
+  end
+
   def index
     @tasks = current_user.tasks.includes(:tags)
 
